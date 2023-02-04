@@ -1,0 +1,25 @@
+using System;
+using System.Linq;
+
+namespace PasswordGenerator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the desired length of the password:");
+            int length = int.Parse(Console.ReadLine());
+
+            string password = GeneratePassword(length);
+
+            Console.WriteLine($"Your randomly generated password is: {password}");
+        }
+
+        static string GeneratePassword(int length)
+        {
+            string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+            Random random = new Random();
+            return new string(Enumerable.Repeat(characters, length).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+    }
+}
