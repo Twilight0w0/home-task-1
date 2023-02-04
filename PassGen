@@ -12,7 +12,7 @@ namespace PasswordGenerator
 
             string password = GeneratePassword(length);
 
-            Console.WriteLine($"Your randomly generated password is: {password}");
+            Console.WriteLine($"Randomly generated password: {password}");
         }
 
         static string GeneratePassword(int length)
